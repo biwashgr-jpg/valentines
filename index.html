@@ -1,144 +1,149 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script> 
-  var password = "ilovemyangeli36"; 
-  var userInput = prompt("Enter password to continue:"); 
-  if (userInput !== password) { document.body.innerHTML = "<h2 style='text-align:center;margin-top:50px;'>Incorrect password</h2>"; throw new Error("Incorrect password"); 
-                              } 
-  </script>
-  <meta charset="UTF-8">
-  <title>Happy Valentine’s Day ❤️</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #ff9a9e, #fecfef);
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
 
+<!-- PASSWORD PROTECTION (WORKS ON GITHUB PAGES) -->
+<script>
+  const correctPassword = "ilovemyangeli36"; // your password
+  const userPassword = prompt("Enter password to continue:");
+
+  if (userPassword !== correctPassword) {
+    document.write("<h2 style='text-align:center;margin-top:50px;font-family:sans-serif;'>Incorrect password</h2>");
+    throw new Error("Stop loading page");
+  }
+</script>
+
+<meta charset="UTF-8">
+<title>Happy Valentine’s Day ❤️</title>
+
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #ff9a9e, #fecfef);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .container {
+    width: 90%;
+    max-width: 1200px;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 20px;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+  }
+
+  .left {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  h1 {
+    margin: 0;
+    font-size: 32px;
+    color: #b3124a;
+  }
+
+  p {
+    font-size: 16px;
+    color: #4a1430;
+    line-height: 1.6;
+  }
+
+  .photo-area {
+    background: #ffe6ef;
+    border: 2px dashed #ff6f9c;
+    border-radius: 15px;
+    padding: 15px;
+    min-height: 350px;
+    text-align: center;
+    color: #b3124a;
+    font-size: 14px;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 12px;
+  }
+
+  .photo-area img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+  .right {
+    background: #ffe6ef;
+    border: 2px dashed #ff6f9c;
+    border-radius: 15px;
+    padding: 0;
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  #roseCanvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  @media (max-width: 800px) {
     .container {
-      width: 90%;
-      max-width: 1200px;
-      background: rgba(255, 255, 255, 0.85);
-      border-radius: 20px;
-      padding: 20px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+      grid-template-columns: 1fr;
     }
+  }
+</style>
 
-    .left {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    h1 {
-      margin: 0;
-      font-size: 32px;
-      color: #b3124a;
-    }
-
-    p {
-      font-size: 16px;
-      color: #4a1430;
-      line-height: 1.6;
-    }
-
-    .photo-area {
-      background: #ffe6ef;
-      border: 2px dashed #ff6f9c;
-      border-radius: 15px;
-      padding: 15px;
-      min-height: 350px;
-      text-align: center;
-      color: #b3124a;
-      font-size: 14px;
-
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-      gap: 12px;
-    }
-
-    .photo-area img {
-      width: 100%;
-      height: 140px;
-      object-fit: cover;
-      border-radius: 10px;
-    }
-
-    .right {
-      background: #ffe6ef;
-      border: 2px dashed #ff6f9c;
-      border-radius: 15px;
-      padding: 0;
-      min-height: 500px;
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-    }
-
-    #roseCanvas {
-      width: 100%;
-      height: 100%;
-      display: block;
-    }
-
-    @media (max-width: 800px) {
-      .container {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
 </head>
 <body>
 
-  <div class="container">
+<div class="container">
 
-    <!-- LEFT SIDE -->
-    <div class="left">
-      <h1>Happy Valentine’s Day ❤️</h1>
-      <p>
-        I don’trttt think I’ll ever find the right wordss to explain what you mean to me saani, but I hope this will help me in expressing my feelings baby.
-        Hajur smile garda extra love well goosebumps aajata heiii....and idk addicted vai sakey jati bela kiss garna ani idk hug garne ni maan lageko lagai garxa🥹
-        I love the way you laugh, the way you talk, the way you care without even trying, the way you breathe, the way you walk, the way you scold mee, the way you are..I loveee youu.
-        I also love the comfort you bring just by being yourselfff.
-        And I love the way you make even boring ghatiyaa days feel like something cute/special that i’ll always remember.
+  <!-- LEFT SIDE -->
+  <div class="left">
+    <h1>Happy Valentine’s Day ❤️</h1>
+    <p>
+      I don’trttt think I’ll ever find the right wordss to explain what you mean to me saani, but I hope this will help me in expressing my feelings baby.
+      Hajur smile garda extra love well goosebumps aajata heiii....and idk addicted vai sakey jati bela kiss garna ani idk hug garne ni maan lageko lagai garxa🥹
+      I love the way you laugh, the way you talk, the way you care without even trying, the way you breathe, the way you walk, the way you scold mee, the way you are..I loveee youu.
+      I also love the comfort you bring just by being yourselfff.
+      And I love the way you make even boring ghatiyaa days feel like something cute/special that i’ll always remember.
 
-        Thank you for being here with me baby
-        Thank you for being you🥹🥹
-        And thank you for letting me love you in the way ii do
+      Thank you for being here with me baby
+      Thank you for being you🥹🥹
+      And thank you for letting me love you in the way ii do
 
-        I loveeeee youuuuuu my madhu🥹🥹❤️
+      I loveeeee youuuuuu my madhu🥹🥹❤️
 
-        Happiest Valentine’s day my princess🥹🥹
-      </p>
+      Happiest Valentine’s day my princess🥹🥹
+    </p>
 
-      <div class="photo-area">
-        <p style="grid-column: 1 / -1;">I Love You my Madhuuu🥹❤️</p>
-        <!-- Add unlimited images here -->
+    <div class="photo-area">
+      <p style="grid-column: 1 / -1;">I Love You my Madhuuu🥹❤️</p>
 
-        <img src="CUtiee.jpg"> 
-        <img src="eyes.jpg"> 
-        <img src="LLK.jpg">
-        <img src="Pookie.jpg">
-        <img src="hi.png">
-      </div>
+      <img src="CUtiee.jpg"> 
+      <img src="eyes.jpg"> 
+      <img src="LLK.jpg">
+      <img src="Pookie.jpg">
+      <img src="hi.png">
     </div>
-
-    <!-- RIGHT SIDE: AUTO‑RESIZING ANIMATION -->
-    <div class="right">
-      <canvas id="roseCanvas"></canvas>
-    </div>
-
   </div>
+
+  <!-- RIGHT SIDE -->
+  <div class="right">
+    <canvas id="roseCanvas"></canvas>
+  </div>
+
+</div>
 
 <script>
 const canvas = document.getElementById("roseCanvas");
@@ -292,6 +297,3 @@ animate();
 
 </body>
 </html>
-
-
-

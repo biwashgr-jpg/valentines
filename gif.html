@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Valentine’s Day ❤️</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ff9a9e, #fecfef);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      background: rgba(255, 255, 255, 0.85);
+      border-radius: 20px;
+      padding: 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    }
+
+    .left {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 32px;
+      color: #b3124a;
+    }
+
+    p {
+      font-size: 16px;
+      color: #4a1430;
+      line-height: 1.6;
+    }
+
+    .photo-area {
+      background: #ffe6ef;
+      border: 2px dashed #ff6f9c;
+      border-radius: 15px;
+      padding: 15px;
+      min-height: 350px;
+      text-align: center;
+      color: #b3124a;
+      font-size: 14px;
+
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 12px;
+    }
+
+    .photo-area img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .right {
+      background: #ffe6ef;
+      border: 2px dashed #ff6f9c;
+      border-radius: 15px;
+      padding: 0;
+      min-height: 500px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    #roseCanvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    @media (max-width: 800px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- LEFT SIDE -->
+    <div class="left">
+      <h1>Happy Valentine’s Day ❤️</h1>
+      <p>
+        I don’trttt think I’ll ever find the right wordss to explain what you mean to me saani, but I hope this will help me in expressing my feelings baby.
+        Hajur smile garda extra love well goosebumps aajata heiii....and idk addicted vai sakey jati bela kiss garna ani idk hug garne ni maan lageko lagai garxa🥹
+        I love the way you laugh, the way you talk, the way you care without even trying, the way you breathe, the way you walk, the way you scold mee, the way you are..I loveee youu.
+        I also love the comfort you bring just by being yourselfff.
+        And I love the way you make even boring ghatiyaa days feel like something cute/special that i’ll always remember.
+
+        Thank you for being here with me baby
+        Thank you for being you🥹🥹
+        And thank you for letting me love you in the way ii do
+
+        I loveeeee youuuuuu my madhu🥹🥹❤️
+
+        Happiest Valentine’s day my princess🥹🥹
+      </p>
+
+      <div class="photo-area">
+        <p style="grid-column: 1 / -1;">I Love You my Madhuuu🥹❤️</p>
+        <!-- Add unlimited images here -->
+
+        <img src="CUtiee.jpg"> 
+        <img src="eyes.jpg"> 
+        <img src="LLK.jpg">
+        <img src="Pookie.jpg">
+        <img src="hi.png">
+      </div>
+    </div>
+
+    <!-- RIGHT SIDE: AUTO‑RESIZING ANIMATION -->
+    <div class="right">
+      <canvas id="roseCanvas"></canvas>
+    </div>
+
+  </div>
+
+<script>
+const canvas = document.getElementById("roseCanvas");
+const ctx = canvas.getContext("2d");
+
+function resizeCanvas() {
+    canvas.width = canvas.clientWidth;
+    canvas.height = canvas.clientHeight;
+}
+resizeCanvas();
+window.addEventListener("resize", resizeCanvas);
+
+// COLORS
+const RED = "rgb(255,0,81)";
+const GLOW = "rgb(255,120,150)";
+const GREEN = "rgb(0,150,0)";
+const WHITE = "white";
+
+// AUTO SCALE
+function scaleX(x) { return x * (canvas.width / 800); }
+function scaleY(y) { return y * (canvas.height / 600); }
+
+// DRAW ROSE
+function drawRose() {
+    let a = 200;
+    let b = 4;
+
+    // Glow
+    for (let glow = 0; glow < 6; glow++) {
+        let scale = a + glow * 6;
+        ctx.beginPath();
+        ctx.strokeStyle = GLOW;
+        ctx.lineWidth = 2;
+
+        for (let deg = 0; deg < 3600; deg++) {
+            let x = (deg / 10) * Math.PI / 180;
+            let r = scale * Math.sin(b * x);
+            let y = r * Math.cos(x) + 400;
+            let z = r * Math.sin(x) + 300;
+
+            if (deg === 0) ctx.moveTo(scaleX(y), scaleY(z));
+            else ctx.lineTo(scaleX(y), scaleY(z));
+        }
+        ctx.stroke();
+    }
+
+    // Filled layers
+    for (let layer = 0; layer < 25; layer++) {
+        let scale = a - layer * 3;
+        ctx.beginPath();
+        ctx.strokeStyle = RED;
+        ctx.lineWidth = 2;
+
+        for (let deg = 0; deg < 3600; deg++) {
+            let x = (deg / 10) * Math.PI / 180;
+            let r = scale * Math.sin(b * x);
+            let y = r * Math.cos(x) + 400;
+            let z = r * Math.sin(x) + 300;
+
+            if (deg === 0) ctx.moveTo(scaleX(y), scaleY(z));
+            else ctx.lineTo(scaleX(y), scaleY(z));
+        }
+        ctx.stroke();
+    }
+}
+
+// STEM
+function drawStem() {
+    ctx.strokeStyle = GREEN;
+    ctx.lineWidth = 12 * (canvas.width / 800);
+    ctx.beginPath();
+    ctx.moveTo(scaleX(400), scaleY(300));
+    ctx.lineTo(scaleX(400), scaleY(600));
+    ctx.stroke();
+}
+
+// LEAF
+function drawLeaf(x, y, flip=false) {
+    ctx.fillStyle = GREEN;
+    ctx.beginPath();
+
+    for (let t = 0; t <= 180; t++) {
+        let rad = t * Math.PI / 180;
+        let r = 50 * Math.sqrt(Math.sin(rad));
+        let lx = r * Math.cos(rad);
+        let ly = r * Math.sin(rad);
+        if (flip) lx = -lx;
+
+        if (t === 0) ctx.moveTo(scaleX(x + lx), scaleY(y + ly));
+        else ctx.lineTo(scaleX(x + lx), scaleY(y + ly));
+    }
+
+    for (let t = 180; t >= 0; t--) {
+        let rad = t * Math.PI / 180;
+        let r = 50 * Math.sqrt(Math.sin(rad));
+        let lx = r * Math.cos(rad);
+        let ly = -r * Math.sin(rad);
+        if (flip) lx = -lx;
+
+        ctx.lineTo(scaleX(x + lx), scaleY(y + ly));
+    }
+
+    ctx.fill();
+}
+
+// PETALS
+class Petal {
+    constructor() { this.reset(); }
+
+    reset() {
+        this.x = 200 + Math.random() * 400;
+        this.y = -Math.random() * 300;
+        this.speed = 1 + Math.random() * 2;
+        this.size = 4 + Math.random() * 4;
+        this.swing = Math.random() * 2 - 1;
+    }
+
+    update() {
+        this.y += this.speed;
+        this.x += Math.sin(this.y * 0.02) * this.swing;
+        if (this.y > 800) this.reset();
+    }
+
+    draw() {
+        ctx.beginPath();
+        ctx.fillStyle = RED;
+        ctx.arc(scaleX(this.x), scaleY(this.y), this.size * (canvas.width / 800), 0, Math.PI * 2);
+        ctx.fill();
+    }
+}
+
+let petals = Array.from({ length: 40 }, () => new Petal());
+
+// MAIN LOOP
+function animate() {
+    ctx.fillStyle = WHITE;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    drawRose();
+    drawStem();
+    drawLeaf(400, 450);
+    drawLeaf(400, 500, true);
+
+    petals.forEach(p => { p.update(); p.draw(); });
+
+    requestAnimationFrame(animate);
+}
+
+animate();
+</script>
+
+</body>
+</html>
